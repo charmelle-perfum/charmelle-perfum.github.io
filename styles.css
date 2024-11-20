@@ -1,0 +1,264 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/*BARRA DE TAREAS*/
+nav {
+    position: fixed; /* Fija la barra en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(252, 181, 181, 0.674); /* Fondo semitransparente */
+    backdrop-filter: blur(3px); /* Desenfoca el contenido detrás */
+    z-index: 10; /* Asegura que esté por encima del contenido */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav ul {
+    margin: 0;
+    padding: 0; 
+    display: flex;
+    align-items: left;  gap: 20px;
+}
+
+nav ul li {
+    display: inline; 
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.556); 
+    color:rgba(12, 12, 7, 0.811);
+}
+
+
+
+.logo{
+    align-items: left;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color:#ffffff;   
+    font-size: 18px; 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: left;  z-index: 2;
+    font-weight: bold;
+    text-decoration: none; 
+
+}
+.logo:hover {
+    color: #FFFFFF; /* Cambia a blanco al pasar el mouse */
+    text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8); /* Más brillo en el hover */
+}
+
+/*GENERAL*/
+.section {
+    padding: 20px;
+    text-align: center;
+    height: 100vh; /* Altura de toda la ventana */
+    display: flex; /* Para centrar contenido */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/*INICIO*/
+
+#inicio::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('fondo.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    filter: brightness(55%);
+    z-index: -1;
+}
+#inicio{
+    z-index: 0;
+    position: relative; 
+    color:#000000;
+    font-family: Georgia, 'Times New Roman', Times, serif;; 
+    height: 100vh; 
+    overflow: hidden; 
+}
+#inicio h1 {
+    font-family:  Times; /* Fuente elegante */
+    font-size: 70px; /* Tamaño grande para destacar */
+    color: #FFFFFF; /* Color blanco */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras para elegancia */
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilo para el párrafo (#inicio p) */
+#inicio p {
+    font-family: 'candara'; /* Fuente limpia y moderna */
+    font-size: 30px; /* Tamaño adecuado para lectura */
+    color: #FFFFFF; /* Color blanco */
+    max-width: 800px; /* Limita el ancho para una mejor legibilidad */
+    margin: 20px auto; /* Centra el texto */
+    line-height: 1.6; /* Espaciado entre líneas para claridad */
+    align-items: center;     
+    justify-content: center;
+}
+.button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ffffff, #cccccd);
+    color: rgb(0, 0, 0);
+    font-size: 17px;
+    border: none;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #ffffff, #cccccd);
+}
+
+.button:active {
+    transform: scale(1.05);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/*nosotros*/
+
+#sobre-nosotros {
+    background-color: #f4d6d6;
+    
+        display: flex;
+        align-items: center;
+        gap: 80px;
+        padding: 10px 250px;
+        height: 100vh; 
+    
+}
+#sobre-nosotros h1{
+    align-items: center;   
+    justify-content: right;
+    font-family:  Times; /* Fuente elegante */
+    font-size: 40px; /* Tamaño grande para destacar */
+    color: #000000; /* Color blanco */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras para elegancia */
+    margin: 0;
+}
+#sobre-nosotros p{
+    align-items: center;  
+   justify-content: right;
+    font-family: 'candara'; /* Fuente limpia y moderna */
+    font-size: 20px; /* Tamaño adecuado para lectura */
+    color: #000000; /* Color blanco */
+    max-width: 800px; /* Limita el ancho para una mejor legibilidad */
+    margin: 20px auto; /* Centra el texto */
+    line-height: 1.6; /* Espaciado entre líneas para claridad */
+}
+
+.img1{
+  width: 400px; 
+  height: auto;
+}
+.text-container{
+    display: flex;
+    flex-direction: column; /* Coloca el h1 y el p en columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    max-width: 600px;
+}
+
+        /* Estilos de productos */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2px;
+            padding: 20px;
+            
+        }
+
+        .product-card {
+            background-color: #fff;
+            overflow: hidden;
+            text-align: left;
+            transition: transform 0.2s ease-in-out;
+            max-width: 300px; /* Limita el ancho de cada tarjeta */
+            margin: 0 auto; /* Centra la tarjeta en su columna */
+
+        }
+
+        .product-card img {
+            display: block; /* Evita espacios blancos debajo de imágenes */
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+
+        .product-card h3 {
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            margin: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-card .price {
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+
+        .product-card button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            width: 50%;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .product-card button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        position: relative;
+            margin-top:100px;
+        }
+

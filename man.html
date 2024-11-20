@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <nav>
+        
+        <ul> 
+            <a class="logo" href="inicio.html">CHARMELLE</a>
+            <li><a href="inicio.html#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="woman.html">Woman</a></li>
+            <li><a href="man.html">Men</a></li>
+            <li><a href="carrito.html">Ver Carrito</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="products-container">
+            <!-- Tarjeta de producto 1 -->
+            <div class="product-card"  data-name="producto1" data-price="699">
+                <img src="Imagen1.jpg" alt="Producto 1" >
+                <h3>Afnan Supremacy Not Only Intense</h3>
+                <p>Las Notas de Salida son grosellas negras, bergamota y manzana.<br>
+
+                    Las Notas de Corazón son musgo de roble, pachulí y lavanda.<br>
+                    
+                    Las Notas de Fondo son ámbar gris, almizcle y azafrán.</p>
+                <p class="price">$699</p>
+                <button  onclick="addToCart('Producto 1', 699)">Añadir</button>
+            </div>
+
+            <!-- Tarjeta de producto 2 -->
+            <div class="product-card"  data-name="producto2" data-price="899">
+                <img src="Imagen4.jpg" alt="Producto 2" >
+                <h3>Al Haramain L'Aventure EDP</h3>
+                <p>Las Notas de Salida son bergamota, limón (lima ácida) y elemí.<br>
+
+                    Las Notas de Corazón son notas amaderadas, lirio de los valles (muguete) y jazmín.<br>
+                    
+                    Las Notas de Fondo son almizcle, ámbar y pachulí.</p>
+                <p class="price">$899</p>
+                <button  onclick="addToCart('Producto 2', 899)">Añadir</button>
+            </div>
+
+            <!-- Tarjeta de producto 3 -->
+            <div class="product-card" data-name="producto3" data-price="799">
+                <img src="Imagen5.png" alt="Producto 3"  >
+                <h3>Armaf Club de Nuit Intense Man Eau de Parfum</h3>
+                <p>Las Notas de Salida son limón (lima ácida), piña, bergamota, grosellas negras y manzana.<br>
+
+                    Las Notas de Corazón son abedul, jazmín y rosa.<br>
+                    
+                    Las Notas de Fondo son almizcle, ámbar gris, pachulí y vainilla.</p>
+                <p class="price">$799</p>
+                <button  onclick="addToCart('Producto 3', 799)">Añadir</button>
+            </div>
+        </section>
+    </main>
+
+
+    <footer>
+        <p>&copy; 2024 Charmelle. Todos los derechos reservados.</p>
+    </footer>
+
+
+    <script>
+        // Función para añadir productos al carrito y almacenarlos en localStorage
+        function addToCart(productName, productPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Obtener carrito o inicializar vacío
+            cart.push({ name: productName, price: productPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));  // Guardar carrito en localStorage
+            alert(`${productName} añadido al carrito`);
+        }
+    </script>
+</body>
+</html>

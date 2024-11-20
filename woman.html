@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <nav>
+        
+        <ul> 
+            <a class="logo" href="inicio.html">CHARMELLE</a>
+            <li><a href="inicio.html#sobre-nosotros">Sobre Nosotros</a></li>
+            <li><a href="woman.html">Woman</a></li>
+            <li><a href="man.html">Men</a></li>
+            <li><a href="carrito.html">Ver Carrito</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section class="products-container">
+            <!-- Tarjeta de producto 1 -->
+            <div class="product-card"  data-name="producto4" data-price="899">
+                <img src="Img9.jpg" alt="Producto 4">
+                <h3>Al Haramain L'Aventure Femme </h3>
+                <p>Las Notas de Salida son piña, grosellas negras, bergamota y bayas silvestres.<br>
+
+                    Las Notas de Corazón son cedro, fresa y rosa.<br>
+                    
+                    Las Notas de Fondo son almizcle, sándalo, ámbar y vainilla.</p>
+                <p class="price">$899</p>
+                <button  onclick="addToCart('Producto 4', 899)">Añadir</button>
+            </div>
+
+            <!-- Tarjeta de producto 2 -->
+            <div class="product-card"  data-name="producto5" data-price="679">
+                <img src="Imagen10.jpg" alt="Producto 5">
+                <h3>Armaf Tag Her Pour Femme</h3>
+                <p>Las Notas de Salida son bergamota, neroli y pimienta rosa.<br>
+
+                    Las Notas de Corazón son flor de azahar del naranjo, jazmín, rosa, madreselva y iris.<br>
+                    
+                    Las Notas de Fondo son vainilla, almizcle, caramelo y ládano.</p>
+                <p class="price">$679</p>
+                <button  onclick="addToCart('Producto 5', 679)">Añadir</button>
+            </div>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Charmelle. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Función para añadir productos al carrito y almacenarlos en localStorage
+        function addToCart(productName, productPrice) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Obtener carrito o inicializar vacío
+            cart.push({ name: productName, price: productPrice });
+            localStorage.setItem('cart', JSON.stringify(cart));  // Guardar carrito en localStorage
+            alert(`${productName} añadido al carrito`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos generales para el carrito */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f0f8; /* Fondo suave rosado */
+            color: #333;
+            padding: 20px;
+        }
+    
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+    
+        /* Contenedor del carrito */
+        #cart-items {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        #cart-items h2 {
+            font-size: 24px;
+            color: #eb7365;
+            margin-bottom: 15px;
+        }
+    
+        /* Estilo para los productos en el carrito */
+        .cart-item {
+            background-color: #f7acc5; /* Fondo suave rosado para cada item */
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .cart-item p {
+            font-size: 16px;
+            color: #333;
+        }
+    
+        .cart-item p:first-child {
+            font-weight: bold;
+        }
+    
+        /* Total */
+        #cart-total {
+            font-size: 20px;
+            font-weight: bold;
+            color: #eb7365;
+            margin-top: 20px;
+        }
+    
+        /* Botón de finalizar compra */
+        button {
+            background-color: #000000;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        button:hover {
+            background-color: #ea796d;
+        }
+    
+        /* Espaciado y margen */
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul> 
+                <a class="logo" href="inicio.html">CHARMELLE</a>
+                <li><a href="inicio.html">Sobre Nosotros</a></li>
+                <li><a href="woman.html">Woman</a></li>
+                <li><a href="man.html">Men</a></li>
+                <li><a href="carrito.html">Ver Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="cart-items">
+            <h2>Tu Cesta</h2>
+            <div id="cart-list"></div>  <!-- Aquí se agregarán los productos del carrito -->
+            <p id="cart-total">Total: $0.00</p>
+            <button onclick="finishPurchase()">Finalizar compra</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Charmelle. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        // Función para cargar el carrito desde localStorage y mostrarlo
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];  // Obtener carrito desde localStorage
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            cartList.innerHTML = '';  // Limpiar la lista antes de mostrar
+
+            let total = 0;
+            cart.forEach(item => {
+                const cartItem = document.createElement('div');
+                cartItem.classList.add('cart-item');
+                cartItem.innerHTML = `
+                    <p>${item.name}</p>
+                    <p>$${item.price.toFixed(2)}</p>
+                `;
+                cartList.appendChild(cartItem);
+                total += item.price;
+            });
+
+            cartTotal.textContent = `Total: $${total.toFixed(2)}`;
+        }
+
+        // Función para finalizar la compra
+        function finishPurchase() {
+            alert('¡Compra realizada con éxito!');
+            localStorage.removeItem('cart');  // Limpiar el carrito después de la compra
+            loadCart();  // Actualizar la vista
+        }
+
+        // Cargar el carrito cuando la página se carga
+        window.onload = loadCart;
+    </script>
+</body>
+</html>
